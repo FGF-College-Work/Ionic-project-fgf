@@ -8,7 +8,7 @@ import { DBMeter } from '@ionic-native/db-meter';
 })
 export class HomePage {
 
-	public subscription;
+	subscription: any;
 
   constructor(
   	public navCtrl: NavController,

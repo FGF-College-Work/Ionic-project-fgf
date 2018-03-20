@@ -36,7 +36,8 @@ import { DBMeter } from '@ionic-native/db-meter';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    {provide:DBMeter, useClass: DBMeter}
+    DBMeter
+    
   ]
 })
 export class AppModule {}
