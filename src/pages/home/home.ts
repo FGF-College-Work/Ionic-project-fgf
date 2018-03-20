@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { DBMeter } from '@ionic-native/db-meter';
-import { Subscription } from 'rxjs/Subscription';
+
 
 @Component({
   selector: 'page-home',
@@ -25,7 +25,7 @@ export class HomePage {
   
   startDBMeter(){
     // Start listening
-      let subscription = this.dbMeter.start().subscribe(
+      this.subscription = this.dbMeter.start().subscribe(
         data => console.log(data)
       );   
 	  
