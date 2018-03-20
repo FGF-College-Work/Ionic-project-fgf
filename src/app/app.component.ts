@@ -22,7 +22,7 @@ export class MyApp {
       splashScreen.hide();
       DBMeter.getSupportedPlatforms();
 
-      timer(3000).subscribe(() => this.showSplash = false)
+      timer(3000).subscribe(() => this.showSplash = false);
     });
   }
 }
