@@ -48,19 +48,19 @@ page-home {
         font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
       }
       
-      @media (max-width: 600px) {
-        #app {
-          max-width: 200px;
-          margin: 10px auto;
+      @media (max-width: 100%) {
+        .app {
+          max-width: auto;
+          margin: auto;
         }
         
         body {
-          min-height: 500px;
+          min-height: 100%;
         }
       }
       
       //targeting safari only and not chrome leads to some really fugly selectors, eh?
-      #app:not(:root:root) {  
+      .app:not(:root:root) {  
         padding: 30px;
       }
 

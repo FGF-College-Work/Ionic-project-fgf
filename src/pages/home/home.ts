@@ -1,3 +1,4 @@
+import { timer } from 'rxjs/observable/timer';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DBMeter } from '@ionic-native/db-meter';
@@ -9,6 +10,7 @@ import { DBMeter } from '@ionic-native/db-meter';
 })
 export class HomePage {
 
+  currentAmplitude: any;
   subscription: any;
   
 
@@ -26,7 +28,7 @@ export class HomePage {
   startDBMeter(){
     // Start listening
       this.subscription = this.dbMeter.start().subscribe(
-        data => console.log(data)
+        data => data.start()
       );   
 	  
 
@@ -50,6 +52,17 @@ export class HomePage {
       () => console.log('Deleted DB Meter instance'),
       error => console.log('Error occurred while deleting DB Meter instance')
     );
+  }
+
+  ionViewDidLoad(){
+    console.log('ionViewDidLoad HomePage');
+
+    let timer = setInterval(() => {
+      //Start listening
+      let subscription = this.dbMeter.start().subscribe(
+        data => this.currentAmplitude = data
+      );
+    }, 100);
   }
 
 
