@@ -1,4 +1,4 @@
-import { timer } from 'rxjs/observable/timer';
+//import { timer } from 'rxjs/observable/timer';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DBMeter } from '@ionic-native/db-meter';
@@ -28,7 +28,7 @@ export class HomePage {
   startDBMeter(){
     // Start listening
       this.subscription = this.dbMeter.start().subscribe(
-        data => data.start()
+        data => data.subscription.start()
       );   
 	  
 
@@ -55,14 +55,7 @@ export class HomePage {
   }
 
   ionViewDidLoad(){
-    console.log('ionViewDidLoad HomePage');
-
-    let timer = setInterval(() => {
-      //Start listening
-      let subscription = this.dbMeter.start().subscribe(
-        data => this.currentAmplitude = data
-      );
-    }, 100);
+    
   }
 
 

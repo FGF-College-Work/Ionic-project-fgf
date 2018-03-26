@@ -12,6 +12,7 @@
     <button color="danger" ion-button full (click)="startDBMeter()">
       <ion-icon>DBMeter</ion-icon>
     </button>
+    <p *ngFor="let db of subscription">{{db.subscription}}</p>
   
   
 </ion-content>
