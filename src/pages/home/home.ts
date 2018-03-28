@@ -12,6 +12,8 @@ export class HomePage {
 
   currentAmplitude: any;
   subscription: any;
+  db : Array<any>;
+
   
 
   constructor(
@@ -28,9 +30,10 @@ export class HomePage {
   startDBMeter(){
     // Start listening
       this.subscription = this.dbMeter.start().subscribe(
-        data => data.subscription.start()
+        data => this.subscription = data,
+        
       );   
-	  
+      console.log(this.subscription)
 
   }
 
@@ -56,6 +59,17 @@ export class HomePage {
 
   ionViewDidLoad(){
     
+
+    let timer = setInterval(() => {
+      // Start listening
+      this.subscription = this.dbMeter.start().subscribe(
+          data => this.currentAmplitude = data,
+          this.subscription = this.currentAmplitude,
+          this.db = this.subscription
+      );
+    }, 100);
+    console.log('I am alive');
+    console.log(this.db);
   }
 
 
